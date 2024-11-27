@@ -6,7 +6,6 @@ import 'package:isw_mobile_sdk/isw_mobile_sdk.dart';
 import 'package:isw_mobile_sdk/models/isw_mobile_sdk_payment_info.dart';
 import 'package:isw_mobile_sdk/models/isw_mobile_sdk_sdk_config.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -34,19 +33,14 @@ class _MyAppState extends State<MyApp> {
     // We also handle the message potentially returning null.
     try {
       // var credential = Config.devConfig;
-      var config = IswSdkConfig(
-          "IKIA3B827951EA3EC2E193C51DA1D22988F055FD27DE",
-          "ajkdpGiF6PHVrwK",
-          "MX21696",
-          "4177785"
-      );
+      var config = IswSdkConfig("IKIA3B827951EA3EC2E193C51DA1D22988F055FD27DE",
+          "ajkdpGiF6PHVrwK", "MX21696", "4177785");
 
       // initialize the sdk
       await IswMobileSdk.initialize(config, Environment.TEST);
       // intialize with environment, default is Environment.TEST
       // IswMobileSdk.initialize(config, Environment.SANDBOX);
-    } on PlatformException {
-    }
+    } on PlatformException {}
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
@@ -64,8 +58,8 @@ class _MyAppState extends State<MyApp> {
         customerName = "Ayooluwa Olosunde",
         customerEmail = "ayooluwa.olosunde@gmail.com",
         customerMobile = "08165656988",
-    // generate a unique random
-    // reference for each transaction
+        // generate a unique random
+        // reference for each transaction
         reference = "rererdsdrwewdsfk";
 
     int amount;
@@ -77,14 +71,8 @@ class _MyAppState extends State<MyApp> {
     }
 
     // create payment info
-    IswPaymentInfo iswPaymentInfo = IswPaymentInfo(
-        customerId,
-        customerName,
-        customerEmail,
-        customerMobile,
-        reference,
-        amount
-    );
+    IswPaymentInfo iswPaymentInfo = IswPaymentInfo(customerId, customerName,
+        customerEmail, customerMobile, reference, amount);
 
     print(iswPaymentInfo);
 
@@ -106,7 +94,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
-  Widget build(BuildContext context)  {
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -132,14 +120,10 @@ class _MyAppState extends State<MyApp> {
                         onPressed: () => pay(ctx),
                         style: ElevatedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 40.0,
-                                vertical: 20.0
-                            ),
+                                horizontal: 40.0, vertical: 20.0),
                             shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)
-                            ),
-                            backgroundColor: Colors.black
-                        ),
+                                borderRadius: BorderRadius.circular(10.0)),
+                            backgroundColor: Colors.black),
                         child: const Text(
                           "Pay",
                           style: TextStyle(color: Colors.white),
